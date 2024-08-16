@@ -36,7 +36,6 @@ class UserManager(BaseUserManager):
             **extra_fields,
         )
 
-
 class User(AbstractBaseUser, PermissionsMixin):
 
     account_id = models.CharField(
@@ -93,4 +92,11 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+    
+class MediaUploadModel(models.Model):
+    title = models.CharField(max_length=50)
+    img = models.ImageField()
+    
+    def __str__(self):
+        return self.title
 

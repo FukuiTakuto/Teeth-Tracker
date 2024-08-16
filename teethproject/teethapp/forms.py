@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm 
-from .models import User
+from .models import User,MediaUploadModel
 
 class SignupForm(forms.ModelForm):
     email = forms.EmailField(
@@ -41,3 +41,7 @@ class LoginForm(AuthenticationForm):
     password = forms.CharField(label="パスワード", widget=forms.PasswordInput)
 
 
+class MediaUploadForm(forms.ModelForm):
+    class Meta:
+        model = MediaUploadModel
+        fields = "__all__"
