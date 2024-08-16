@@ -7,6 +7,13 @@
 </head>
 <body>
   <h1>ここがホームが画面やで～</h1>
+  {% for image in images %}
+  <div>
+    <h2>{{ image.title }}</h2>
+    <img src="{{ image.img.url }}" alt="{{ image.title }}" style="max-width: 100%; height: auto;">
+  </div>
+  {% endfor %}
   <a href="{% url 'teethapp:index' %}">ログアウト</a>
 </body>
 </html>
+
