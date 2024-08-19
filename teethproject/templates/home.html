@@ -7,9 +7,26 @@
 </head>
 <body>
   <h1>ここがホームが画面やで～</h1>
+  <a href="{% url 'teethapp:mediaupload' %}">画像をアップロード</a>
+
+  <form method="get" action="{% url 'teethapp:home' %}">
+    <select name="tag">
+        <option value="">すべてのタグ</option>
+        <option value="front">前</option>
+        <option value="right">右</option>
+        <option value="left">左</option>
+        <option value="top">上</option>
+        <option value="bottom">下</option>
+    </select>
+    <button type="submit">絞り込む</button>
+  </form>
+
   {% for image in images %}
   <div>
-    <h2>{{ image.img.url }}</h2>
+    <h2>{{ image.title }}</h2>
+    <p>{{ image.timestamp|date:"Y-m-d" }}</p>
+    <p>{{ image.memo }}</p>
+    <p>{{ image.get_tag_display }}</p>
     <img src="{{ image.img.url }}" alt="{{ image.title }}" style="max-width: 100%; height: auto;">
   </div>
   {% endfor %}

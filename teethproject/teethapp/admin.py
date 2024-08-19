@@ -5,7 +5,10 @@ from .models import User,MediaUploadModel
 
 
 admin.site.register(User) 
-admin.site.register(MediaUploadModel)
 admin.site.unregister(Group) 
+admin.site.register(MediaUploadModel)
+
+class MediaUploadModelAdmin(admin.ModelAdmin):
+    list_display = ('image', 'tag')
 
 # Register your models here.
