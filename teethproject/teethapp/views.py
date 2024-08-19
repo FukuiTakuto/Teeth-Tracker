@@ -14,6 +14,13 @@ class HomeView(ListView):
     model = MediaUploadModel
     context_object_name = "images"
     
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        tag = self.request.GET.get('tag')
+        if tag:
+            queryset = queryset.filter(tag=tag)
+        return queryset
+    
 class LoginView(BaseLoginView):
     form_class = LoginForm
     template_name = "login.html"

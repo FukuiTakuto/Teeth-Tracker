@@ -95,7 +95,18 @@ class User(AbstractBaseUser, PermissionsMixin):
     
 class MediaUploadModel(models.Model):
     title = models.CharField(max_length=50)
+    timestamp = models.DateField(auto_now_add=True)
+    memo = models.TextField(blank=True)
     img = models.ImageField()
+    TAG_CHOICES = [
+        ('front', '前'),
+        ('right', '右'),
+        ('left', '左'),
+        ('top', '上'),
+        ('bottom', '下'),
+    ]
+
+    tag = models.CharField(max_length=10, choices=TAG_CHOICES, blank=True)
     
     def __str__(self):
         return self.title
