@@ -1,0 +1,119 @@
+/* ナビゲーションバーのスタイル */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 150, 255, 0.8); 
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  z-index: 1000; /* ナビゲーションバーが他の要素の上に表示されるようにする */
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+.header h1 {
+  margin-left: 40%; /* 左から25%の位置に配置 */
+  text-align: center;
+  font-family: 'Georgia', serif;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #007BFF; /* 青色に変更 */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* おしゃれな影を追加 */
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+/* 全体の余白調整 (ナビゲーションバーの高さ分) */
+body {
+  margin-top: 60px;
+  font-family: Arial, sans-serif;
+}
+
+/* メインコンテンツのスタイル */
+.grid {
+  display: grid;
+  gap: 2rem 1.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+  padding: 0 10px;
+}
+
+.item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.item h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.item .timestamp {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.item .memo {
+  font-size: 1em;
+  margin-bottom: 15px;
+}
+
+.memo .tag {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px 8px 0 0;
+}
+
+form button {
+  background-color: #007BFF; /* 青色 */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #0056b3; /* ホバー時の濃い青色 */
+}    
+.header {
+  display: flex;
+  justify-content: flex-start; /* 左寄せ */
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* フォームを右に配置 */
+}
+
+form select, form button {
+  margin-left: 10px;
+}
