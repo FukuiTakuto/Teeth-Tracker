@@ -110,4 +110,9 @@ class MediaUploadModel(models.Model):
     
     def __str__(self):
         return self.title
+    
+class CalendarModel(models.Model):
+    start_date = models.DateField
+    end_date = models.DateField
+    event_name = models.TextField(max_length=50)
 
