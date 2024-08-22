@@ -50,4 +50,8 @@ class EventForm(forms.Form):
     start_date = forms.IntegerField(required=True)
     end_date = forms.IntegerField(required=True)
     event_name = forms.CharField(max_length=50, required=True) 
+
+class CalendarForm(forms.Form):
+    start_date = forms.IntegerField(required=True)
+    end_date = forms.IntegerField(required=True)
     

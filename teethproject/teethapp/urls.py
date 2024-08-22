@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import HomeView,SignupView,IndexView,LoginView,LogoutView,MediaUploadView,CalendarView,Eventadd
+from .views import HomeView,SignupView,IndexView,LoginView,LogoutView,MediaUploadView,CalendarView,Eventadd,Eventget
 
 app_name = 'teethapp'
 
@@ -12,4 +12,5 @@ urlpatterns = [
     path("mediaupload/",MediaUploadView.as_view(),name="mediaupload"),
     path("calendar/",CalendarView,name="calendar"),
     path("eventadd/",Eventadd,name="eventadd"),
+    path("eventget/",Eventget,name="eventget")
 ]
