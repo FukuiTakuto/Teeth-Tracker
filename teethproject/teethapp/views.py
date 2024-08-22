@@ -7,6 +7,7 @@ from django.http import Http404,HttpResponse
 import json
 from django.middleware.csrf import get_token
 from django.template import loader
+import time
 
 
 # Create your views here.
@@ -62,11 +63,16 @@ def Eventadd(request):
     end_date = datas["end_date"]
     event_name = datas["event_name"]
     
+    formatted_start_date = time.strftime(
+        "%Y-%m-%d", time.localtime(start_date / 1000))
+    formatted_end_date = time.strftime(
+        "%Y-%m-%d", time.localtime(end_date / 1000))
+    
     event = CalendarModel(
         event_name = str(event_name),
-        start_date = start_date,
-        end_date = end_date,
+        start_date = formatted_start_date,
+        end_date = formatted_end_date,
     )
     event.save()
     
-    return HttpResponse("")
+    return HttpResponse("こんちは")

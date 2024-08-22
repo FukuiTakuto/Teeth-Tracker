@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     })
                     .catch(() => {
                         // バリデーションエラーなど
+                        console.error(error);
                         alert("登録に失敗しました");
                     });
       }

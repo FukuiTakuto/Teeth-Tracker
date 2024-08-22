@@ -9,7 +9,7 @@ urlpatterns = [
     path('signup/',SignupView.as_view(),name = "signup"),
     path('login/',LoginView.as_view(),name = "login"),
     path("logout/",LogoutView.as_view(),name='logout'),
-    path("mediaupload",MediaUploadView.as_view(),name="mediaupload"),
+    path("mediaupload/",MediaUploadView.as_view(),name="mediaupload"),
     path("calendar/",CalendarView,name="calendar"),
-    path("eventadd",Eventadd,name="eventadd"),
+    path("eventadd/",Eventadd,name="eventadd"),
 ]
