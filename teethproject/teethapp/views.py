@@ -1,9 +1,9 @@
 from django.views.generic import TemplateView,CreateView,ListView
 from django.contrib.auth.views import LoginView as BaseLoginView,LogoutView as BaseLogoutView
-from .forms import SignupForm,LoginForm,MediaUploadForm,EventForm
+from .forms import SignupForm,LoginForm,MediaUploadForm,EventForm,CalendarForm
 from django.urls import reverse_lazy
 from .models import MediaUploadModel,CalendarModel
-from django.http import Http404,HttpResponse
+from django.http import Http404,HttpResponse,JsonResponse
 import json
 from django.middleware.csrf import get_token
 from django.template import loader
@@ -76,3 +76,35 @@ def Eventadd(request):
     event.save()
     
     return HttpResponse("こんちは")
+
+def Eventget(request):
+    if request.method == "GET":
+        raise Http404
+    
+    datas = json.loads(request.body)
+    
+    calendarform = CalendarForm(datas)
+    if calendarform.is_valid() == False:
+        raise Http404
+    start_date = datas["start_date"]
+    end_date = datas["end_date"]
+    
+    formatted_start_date = time.strftime(
+        "%Y-%m-%d", time.localtime(start_date / 1000))
+    formatted_end_date = time.strftime(
+        "%Y-%m-%d", time.localtime(end_date / 1000))
+    
+    events = CalendarModel.objects.filter(
+        start_date__lt=formatted_end_date, end_date__gt=formatted_start_date
+    )
+    
+    list=[]
+    for event in events:
+        list.append(
+            {
+                "title": event.event_name,
+                "start": event.start_date,
+                "end": event.end_date,
+            }
+        )
+    return JsonResponse(list,safe=False)
