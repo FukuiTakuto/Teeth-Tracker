@@ -79,7 +79,7 @@ USE_TZ = True
 
 STATIC_ROOT = '/home/fukky/static/'
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     BASE_DIR/"static",
