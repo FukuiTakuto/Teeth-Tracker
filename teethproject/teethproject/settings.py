@@ -1,5 +1,8 @@
 from .settings_common import *
-from .settings_sercret import *
+# from .settings_sercret import * #
+import os
+
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
